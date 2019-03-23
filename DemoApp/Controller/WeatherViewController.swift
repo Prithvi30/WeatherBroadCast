@@ -152,9 +152,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             weatherData.temperature = Int(tempResult - 273.15)
             weatherData.city = json["name"].stringValue
             weatherData.condition = json["weather"][0]["id"].intValue
-            weatherData.Desc = json["weather"][0]["description"].stringValue
-            //weatherData.lat = json["coord"][0]["lat"].double!
-            
+            weatherData.Desc = json["weather"][0]["description"].stringValue            
             
             UserDefaults.standard.set("\(weatherData.city)", forKey: "Key") //setObject
 
@@ -231,8 +229,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             let params: [String:String] = ["lat": latitude, "lon": longitude, "appid": APP_ID]
             getWeatherData(url: WEATHER_URL, parameters: params)
             
-         //   getWeatherData(url: FORECAST_API_URL, parameters: params)
-            
         }
     }
     
@@ -245,7 +241,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         
         let params: [String:String] = ["q": city, "appid": APP_ID]
         getWeatherData(url: WEATHER_URL, parameters: params)
-        //weatherDataa(url: WEATHER_URL, parameters: params)
 
     }
     
